@@ -7,7 +7,7 @@ from functools import partial
 from cqr import tune_params_cv
 from nonconformist.cp import IcpRegressor
 from nonconformist.base import RegressorAdapter
-from skgarden import RandomForestQuantileRegressor
+# from skgarden import RandomForestQuantileRegressor
 
 if torch.cuda.is_available():
     device = "cuda:0"
@@ -534,10 +534,10 @@ class QuantileForestRegressorAdapter(RegressorAdapter):
         self.quantiles = quantiles
         self.cv_quantiles = self.quantiles
         self.params = params
-        self.rfqr = RandomForestQuantileRegressor(random_state=params["random_state"],
-                                                  min_samples_leaf=params["min_samples_leaf"],
-                                                  n_estimators=params["n_estimators"],
-                                                  max_features=params["max_features"])
+        # self.rfqr = RandomForestQuantileRegressor(random_state=params["random_state"],
+        #                                           min_samples_leaf=params["min_samples_leaf"],
+        #                                           n_estimators=params["n_estimators"],
+        #                                           max_features=params["max_features"])
 
     def fit(self, x, y):
         """ Fit the model to data
